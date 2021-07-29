@@ -27,13 +27,13 @@ def scan_callback(msg):
 #dis_front = 0.0
 
 def navigate(front):
-	if front > 50:
+	if front > 30:
 		print("drive forward")
 		cmd_vel = Twist()
 		cmd_vel.linear.x = 0.5
-		#rotate with angular.z
+		cmd_vel.angular.z = -3.0
 		pub.publish(cmd_vel)
-	
+
 
 rospy.init_node("park")
 rate = rospy.Rate(1)

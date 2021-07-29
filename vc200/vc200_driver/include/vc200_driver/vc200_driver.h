@@ -16,7 +16,7 @@
 #include "vc200_driver/timers.h"
 #include "vc200_driver/laser_ruler.h"
 #include "vc200_driver/ultrasound.h"                                            //Added by Filip
-#include "vc200_driver/minilidar.h"
+#include "vc200_driver/minilidar.h"						//Added by Pawel
 
 namespace vc200_driver {
 class VC200Driver {
@@ -43,7 +43,6 @@ class VC200Driver {
   std::unique_ptr<Statistics> statsPtr_;
   std::unique_ptr<Configurator> confPtr_;
   std::unique_ptr<Timers> timersPtr_;
-                                  //Added by Filip
 
   std::shared_ptr<STInterface::STInterfaceClientUDP> stClientPtr_;
   bool connected_;

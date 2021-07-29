@@ -11,6 +11,8 @@ namespace Interface
     struct MinilidarData
     {
       uint16_t distance;
+      uint16_t signalStrength;
+      uint8_t lidarMode;
     };
 
     class MinilidarFrame : public Interface::UpstreamDataType

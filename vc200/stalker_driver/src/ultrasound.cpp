@@ -14,7 +14,7 @@ namespace Interface
         
         void UltrasoundFrame::readData(UltrasoundData &dest)
         {
-            std::cout << "Odczyt danych z ultrasound " << data.distance << std::endl;
+            std::cout << "Odczyt danych z ultrasound " << data.distance << " cm" << std::endl;
             std::lock_guard<std::mutex> lock(dataMutex);
             dest = data;
         }
@@ -31,9 +31,9 @@ namespace Interface
 
             std::lock_guard<std::mutex> lock(dataMutex);
 
-            //dataset.distance = uint16_t((iDataStream[0] << 8) | (iDataStream[1] & 0xFF));
-	    dataset.distance = uint16_t(iDataStream[1] << 8);
-	    dataset.distance = dataset.distance + uint16_t(iDataStream[2]);
+            dataset.distance = uint16_t((iDataStream[0] << 8) | (iDataStream[1] & 0xFF));
+	    //dataset.distance = uint16_t(iDataStream[1] << 8);
+	    //dataset.distance = dataset.distance + uint16_t(iDataStream[2]);
 
             data.distance = dataset.distance;
 

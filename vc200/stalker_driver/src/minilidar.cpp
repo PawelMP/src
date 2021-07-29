@@ -14,7 +14,8 @@ namespace Interface
         
         void MinilidarFrame::readData(MinilidarData &dest)
         {
-            std::cout << "Odczyt danych z Minilidar " << data.distance << std::endl;
+            std::cout << "Odczyt danych z Minilidar - dystans " << data.distance << " cm" << std::endl;
+            std::cout << "Odczyt danych z Minilidar - sila " << data.signalStrength << std::endl;
             std::lock_guard<std::mutex> lock(dataMutex);
             dest = data;
         }
@@ -32,8 +33,10 @@ namespace Interface
             std::lock_guard<std::mutex> lock(dataMutex);
 
             dataset.distance = uint16_t((iDataStream[0] << 8) | (iDataStream[1] & 0xFF));
+	    dataset.signalStrength = uint16_t((iDataStream[2] << 8) | (iDataStream[3] & 0xFF));
 
             data.distance = dataset.distance;
+            data.signalStrength = dataset.signalStrength;
 
             std::cout << "RAW Minilidar data: " << data.distance << std::endl;
 

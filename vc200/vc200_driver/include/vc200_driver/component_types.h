@@ -7,3 +7,4 @@
 #include "vc200_driver/timers.h"
 #include "vc200_driver/imu.h"
 #include "vc200_driver/ultrasound.h"
+#include "vc200_driver/minilidar.h"
